@@ -1,9 +1,9 @@
 const express=require('express');
 const app=express();
 
-app.get('/',(req,res)=>{
+app.get('/api/user/afsd',(req,res)=>{
 
-res.send({'msg':'Hello'});
+res.status(404).send({'msg':'Hello'});
 
 });
 
