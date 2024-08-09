@@ -8,9 +8,12 @@ const student=require('./routers/student');
 // app.use(log);
 app.use(express.json());
 // app.use('/api/user',log,user);
-console.log(app.get('env'));
+// console.log(app.get('env'));
 
-app.use(morgan('dev'))
+if(app.get('env')==='development'){
+    app.use(morgan('dev'))
+}
+
 app.use('/api/user',user);
 app.use('/api/student',student);
 
