@@ -3,12 +3,15 @@ const app=express();
 
 const user=require('./routers/user');
 const student=require('./routers/student');
-app.use(log);
-app.use('/api/user',user);
+
+// app.use(log);
+app.use(express.json());
+app.use('/api/user',log,user);
 app.use('/api/student',student);
 
 function log(req,res,next){
     console.log("hello world for middle");
+    req.id="10";
     next();   
 }
 console.log( process.env.PORT);
